@@ -7,4 +7,8 @@ $(document).ready(function() {
 		$(this).css('background-color', "black");
 		$(this).css('border', "1px solid white");
 	});
+
+	$("button").click(function() {
+		$('.square').removeAttr('style');
+	});
 })
