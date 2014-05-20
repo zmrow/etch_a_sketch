@@ -3,8 +3,8 @@
 	text-align: center;
 }
 
-button {
-	margin: 10px auto;
+#clear {
+	margin: auto 0px auto 50px;
 }
 
 #grid {
