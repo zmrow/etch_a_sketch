@@ -1,35 +1,32 @@
 // Script for the Etch-a-Scetch!!
 
 $(document).ready(function() {
-	alert("Click on a button to choose what type of Etch-a-Scetch you want!")
+	alert("Click on a button to choose what type of Etch-a-Scetch you want!");
 	
-	function black(){
-		$("#black").click(function() {
-			initializeGrid();
-			$(".square").hover(function() {
-				$(this).css('background-color', "black");
-				$(this).css('border', "1px solid white");
-			});
+	$("#black").click(function() {
+		$('.square').removeAttr('style');
+		initializeGrid();
+		$(".square").hover(function() {
+			$(this).css('background-color', "black");
+			$(this).css('border', "1px solid white");
 		});
-	}
+	});
 
-	function trail() {
-		$("#trail").click(function () {
-			initializeGrid();
-			$(".square").hover(function() {
-				$(this).fadeIn(300);
-				$(this).fadeOut(300);
-			});
+	$("#trail").click(function () {
+		$('.square').removeAttr('style');
+		initializeGrid();
+		$(".square").hover(function() {
+			$(this).fadeTo(100,0);
+			$(this).mouseLeave(function() {
+				$(this).fadeTo(400,1);
+			})
 		});
-	}
+	});
 
-	function reset() {
-		$("#clear").click(function() {
-			initializeGrid();
-			$('.square').removeAttr('style');
-		});
-		alert("Please play again!  Click on an Etch-a-Sketch type again!")
-	}
+	$("#clear").click(function() {
+		$('.square').removeAttr('style');
+		initializeGrid();
+	});
 
 	function initializeGrid() {
 		var $size = prompt("How large should one side of the grid be? (1-128)");
