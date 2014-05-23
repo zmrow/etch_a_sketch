@@ -4,7 +4,6 @@ $(document).ready(function() {
 	alert("Click on a button to choose what type of Etch-a-Scetch you want!");
 	
 	$("#black").click(function() {
-		$('.square').removeAttr('style');
 		initializeGrid();
 		$(".square").hover(function() {
 			$(this).css('background-color', "black");
@@ -13,11 +12,10 @@ $(document).ready(function() {
 	});
 
 	$("#trail").click(function () {
-		$('.square').removeAttr('style');
 		initializeGrid();
 		$(".square").hover(function() {
 			$(this).fadeTo(100,0);
-			$(this).mouseLeave(function() {
+			$(this).mouseleave(function() {
 				$(this).fadeTo(400,1);
 			})
 		});
@@ -29,6 +27,8 @@ $(document).ready(function() {
 	});
 
 	function initializeGrid() {
+		$("#btn-cntnr").html("");
+		$(".square").removeAttr('style');
 		var $size = prompt("How large should one side of the grid be? (1-128)");
 
 		if($size >= 1 && $size <= 128 ){ //Make sure the size is within parameters
